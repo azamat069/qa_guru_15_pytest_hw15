@@ -2,7 +2,7 @@ import pytest
 from selene import browser, have
 
 
-def test_desktop(browser_management):
+def test_desktop_skip_mobile_screen(browser_management):
     if browser_management == 'mobile':
         pytest.skip(reason='Размер окна не соответствует desktop')
 
@@ -11,7 +11,7 @@ def test_desktop(browser_management):
     browser.element('.auth-form-header').should(have.text('Sign in to GitHub'))
 
 
-def test_mobile(browser_management):
+def test_mobile_skip_desktop_screen(browser_management):
     if browser_management == 'desktop':
         pytest.skip(reason='Размер окна не соответствует mobile')
 

@@ -2,8 +2,8 @@ import pytest
 from selene import browser
 
 
-@pytest.fixture(scope="function", params=[(1280, 1024), (1024, 768), (414, 896)],
-                ids=['1280x1024', '1024x768', 'Iphone XR'])
+@pytest.fixture(scope="function", params=[(1280, 1024), (1440, 900), (414, 896)],
+                ids=['1280x1024', '1440x900', 'Iphone XR'])
 def browser_management(request):
     browser.config.base_url = 'https://github.com'
     param_width, param_height = request.param
@@ -28,8 +28,8 @@ def browser_mobile(request):
     browser.quit()
 
 
-@pytest.fixture(scope="function", params=[(1280, 1024), (1024, 768), (1366, 768)],
-                ids=['1280x1024', '1024x768', '1366x768'])
+@pytest.fixture(scope="function", params=[(1280, 1024), (1440, 900), (1366, 768)],
+                ids=['1280x1024', '1440x900', '1366x768'])
 def browser_desktop(request):
     browser.config.base_url = 'https://github.com'
     param_width, param_height = request.param
